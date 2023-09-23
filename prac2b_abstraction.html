@@ -1,0 +1,35 @@
+<!-- abstraction -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Creating a constructor function for the Vehicle
+        function Vehicle(vehicleName) {
+            this.vehicleName = vehicleName;
+        }
+
+        // Adding a method to the Vehicle prototype
+        Vehicle.prototype.display = function () {
+            return "Vehicle is " + this.vehicleName;
+        }
+
+        // Creating a constructor function for Bike, which inherits from Vehicle
+        function Bike(vehicleName) {
+            // Call the constructor of the parent class (Vehicle) to initialize vehicleName
+            Vehicle.call(this, vehicleName);
+        }
+
+        // Setting up the prototype chain for Bike
+        Bike.prototype = Object.create(Vehicle.prototype);
+        Bike.prototype.constructor = Bike; // Correcting the constructor property
+
+        var bike = new Bike("Honda");
+        document.writeln(bike.display());
+    </script>
+</body>
+</html>

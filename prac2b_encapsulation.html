@@ -1,0 +1,41 @@
+<!-- Encapsulation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student{
+            constructor(){
+                var name;
+                var marks;
+
+            }
+            getName(){
+                return this.name;
+            }
+            setName(name){
+                this.name = name ;
+
+            }
+            getMarks(){
+                return this.marks;
+            }
+            setMarks(marks){
+                this.marks = marks ;
+
+            }
+            
+        }
+        var s1= new Student();
+        
+        s1.setName("Raj");
+        s1.setMarks(14);
+        document.writeln("My name is "+s1.getName()+" My marks is "+s1.getMarks());
+    </script>
+    
+</body>
+</html>
