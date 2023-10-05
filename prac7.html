@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .after{
+            background-color: green;
+            background:yellow;
+            border: 1px solid black;
+
+        }
+        .before{
+            background-color: pink;
+            background:orange;
+            border: 1px solid black;
+        }
+        .box{
+            background-color: red;
+            background:yellow;
+            border: 1px solid black;
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <h3><a href="google.com" class="after">Google</a></h3>
+    <h3><a href="yahoo.com" class="before">Yahoo</a></h3>
+    <h3><a href="google.com" class="after">Google</a></h3>
+
+    <h2 class="after" id="toogle">H</h2>
+    <button >Toggle</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#toogle").toggleClass("before after")
+            })
+            $('a.after').removeClass('a.after');
+            $('a.before').addClass('a.after');
+
+            $('.box').mouseleave(function(event){
+                console.log("mouse leave",event);
+            });
+            $('.box').mouseenter(function(event){
+                console.log("mouse enter",event);
+            });
+
+            }
+        );
+    </script>
+    
+</body>
+</html>

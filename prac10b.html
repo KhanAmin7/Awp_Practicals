@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function Onload() {
+        var data_file = "data.json";
+        var xhr = new XMLHttpRequest();
+        try {
+          xhr = new XMLHttpRequest();
+        } catch (e) {
+          try {
+            xhr = new ActiveXObject("Msxml2.XMLHTTP");
+          } catch (e) {
+            try {
+              xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+              alert("broken browser!");
+            }
+          }
+        }
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            // Check for status code
+            var jsonobj = JSON.parse(xhr.responseText); // Corrected "xhr, responseText" to "xhr.responseText"
+
+            document.getElementById("Name").innerHTML = jsonobj.name;
+            document.getElementById("Country").innerHTML = jsonobj.country;
+          }
+        };
+        xhr.open("GET", data_file, true);
+        xhr.send();
+      }
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Cricket details</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+      <tr>
+        <td><div id="Name">Sachin</div></td>
+        <td><div id="Country">India</div></td>
+      </tr>
+    </table>
+    <button type="button" onclick="Onload()">Update Details</button>
+  </body>
+</html>

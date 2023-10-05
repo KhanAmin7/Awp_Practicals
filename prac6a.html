@@ -1,0 +1,27 @@
+<!-- simple ajax -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="x">
+      <h2>This is XMLHTTpRequest</h2>
+      <button type="button" onclick="LoadDoc()">Click to change</button>
+    </div>
+    <script>
+      function LoadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("x").innerHTML = this.responseText;
+          }
+        }
+        xhttp.open('GET','data.txt',true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
